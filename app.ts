@@ -75,7 +75,7 @@ if (pinAnswer.pin === myPin) {
       }
     ]
     );
-   
+    
     console.log("Entered deposit amount: ", amountAns.deposit_amount); // Debugging line
     if (amountAns.deposit_amount > 0) {
       myBalance += amountAns.deposit_amount;
