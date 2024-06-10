@@ -21,7 +21,7 @@ if (pinAnswer.pin === myPin) {
       name: "operation",
       message: "please select the option",
       type: "list",
-      choices: ["withdraw","check balance" , "fast cash", "Deposite" ],
+      choices: ["withdraw","check balance" , "fast cash", "deposit" ],
     },
   ]);
   console.log(operationAns);
@@ -66,29 +66,28 @@ if (pinAnswer.pin === myPin) {
   }
 
   //------------------------------deposite-----------------------
-  else if (operationAns.operation === "Deposite") {
+  else if (operationAns.operation === "deposit") {
     let amountAns = await inquirer.prompt([
       {
-        name: "Deposite_amount",
+        name: "deposit_amount",
         message: "please enter your amount :",
         type: "number",
       }
     ]
-    )
-    if (operationAns.Deposite_amount < 0) {
-
+    );
+   
+    console.log("Entered deposit amount: ", amountAns.deposit_amount); // Debugging line
+    if (amountAns.deposit_amount > 0) {
       myBalance += amountAns.deposit_amount;
       console.log(`The new balance is ${myBalance}`);
     } else {
       console.log("Invalid deposit amount");
-    }
 
 
+  };
   }
-
 
 }
 else {
   console.log("Incorrect pin number")
-}
-
+};
